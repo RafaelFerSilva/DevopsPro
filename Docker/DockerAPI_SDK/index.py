@@ -10,4 +10,8 @@ client = docker.from_env()
 #     print(f'{item.id} - {item.image.tags} - {item.name}')
 
 container = client.containers.get("2a2bb0c8a933705f0c143fd35d3b2e44a15c326f3ddf7290d7b0f45b4feef968")
-print(f'{container.id} - {container.image.tags} - {container.name}')
+# print(f'{container.id} - {container.image.tags} - {container.name}')
+
+# print(container.logs())
+
+container.remove(force=True)
