@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  APP_NAME_CONFIG: "Minha aplicação kubernets"
+  APP_VERSION_CONFIG: "4.0"
+  APP_AUTHOR_CONFIG: "Rafael Silva"
