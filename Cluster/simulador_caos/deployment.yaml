@@ -17,7 +17,18 @@ spec:
         image: kubedevio/simulador-do-caos:v1
         ports:
         - containerPort: 3000
-      restartPolicy: OnFailure
+        livenessProbe: 
+          httpGet:
+            port: 3000
+            path: /health
+            httpHeaders:
+              - name: token
+                value: trefdgdfgdfgfd
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 1
+          successThreshold: 1
+          timeoutSeconds: 3
 ---
 apiVersion: v1
 kind: Service
