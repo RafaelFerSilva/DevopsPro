@@ -14,16 +14,19 @@ spec:
     spec:
       containers:
       - name: web
-        image: kubedevio/simulador-do-caos:v1
+        image: registry.k8s.io/busybox
+        command:
+          - /bin/sh
+          - -c
+        args:
+          - touch /tmp/health; sleep 600;
         ports:
         - containerPort: 3000
         livenessProbe: 
-          httpGet:
-            port: 3000
-            path: /health
-            httpHeaders:
-              - name: token
-                value: trefdgdfgdfgfd
+          exec:
+            command:
+              - cat
+              - /tmp/health
           initialDelaySeconds: 5
           periodSeconds: 5
           failureThreshold: 1
