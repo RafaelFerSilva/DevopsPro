@@ -21,8 +21,8 @@ spec:
           name: pagina
       volumes:
         - name: pagina
-          configMap:
-            name: pagina-nginx
+          secret:
+            secretName: pagina-nginx
 ---
 apiVersion: v1
 kind: Service
