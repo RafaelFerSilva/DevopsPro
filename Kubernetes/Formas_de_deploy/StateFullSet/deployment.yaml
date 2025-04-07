@@ -3,13 +3,16 @@ kind: StatefulSet
 metadata:
   name: nginx
 spec:
+  persistentVolumeClaimRetentionPolicy: 
+    whenScaled: Delete
+    whenDeleted: Retain
   serviceName: nginx
   updateStrategy:
     type: RollingUpdate
   selector:
     matchLabels:
       app: nginx-state
-  replicas: 1
+  replicas: 8
   template:
     metadata:
       labels:
