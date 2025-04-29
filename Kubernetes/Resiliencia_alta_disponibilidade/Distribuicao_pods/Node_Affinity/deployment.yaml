@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: web
 spec:
-  replicas: 10
+  replicas: 5
   selector:
     matchLabels:
       app: web
@@ -27,7 +27,14 @@ spec:
             - weight: 1
               preference:
                 matchExpressions:
-                - key: disktype
+                - key: gpuprocess
                   operator: In
                   values:
-                  - ssd
+                  - "true"
+            - weight: 100
+              preference:
+                matchExpressions:
+                - key: region
+                  operator: In
+                  values:
+                  - "regionb"
