@@ -3,6 +3,13 @@ kind: Namespace
 metadata:
   name: web-color
 ---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: curl
+  labels:
+    env: curl
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:

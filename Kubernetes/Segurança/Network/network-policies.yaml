@@ -14,6 +14,9 @@ spec:
     - podSelector:
         matchLabels:
           app: curl
+      namespaceSelector:
+        matchLabels:
+          name: curl
     ports:
     - protocol: TCP
       port: 80
