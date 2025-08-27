@@ -7,7 +7,6 @@ jobs:
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
-        
       - name: Alteração no card
         uses: actions/github-script@v7
         with:
