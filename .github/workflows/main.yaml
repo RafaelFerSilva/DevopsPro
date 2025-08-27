@@ -8,7 +8,7 @@ jobs:
     steps:
         
       - name: Alteração no card
-        uses: actions/github-scriptv6
+        uses: actions/github-script@v6
         with:
           script: |
             github.rest.issues.createComment({
