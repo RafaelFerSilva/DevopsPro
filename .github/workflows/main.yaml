@@ -1,12 +1,7 @@
 name: Workflow Evento
 on:
-  workflow_dispatch:
-    inputs:
-      exemplo-input:
-        type: string
-        description: "Descrição do input exemplo"
-        required: true
-
+  push:
+    branches: ["main", "feature/*", "release/*"]
 jobs:
   teste:
     runs-on: ubuntu-latest
