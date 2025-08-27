@@ -6,7 +6,6 @@ jobs:
   teste:
     runs-on: ubuntu-latest
     steps:
-      - name: Action de teste
         
       - name: Alteração no card
         users: actions/github-scriptv6
