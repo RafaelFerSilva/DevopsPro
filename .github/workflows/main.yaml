@@ -1,7 +1,7 @@
 name: Workflow Evento
 on:
   workflow_dispatch:
-	  inputs:
+    inputs:
 		  valor_numerico:
 			  default: 20
 			valor_string:
@@ -9,16 +9,15 @@ on:
 		  valor_boolean:
 			  default: true
 	  
-		  
-	jobs: 
-		teste:
-			permissions: write-all
-			runs-on: ubuntu-latest
-			steps:
-				- name: Operação com string
-					run: echo "${{ github.actor == inputs.valor_string}}"
-				- name: Operação com number
-					run: echo "${{ inputs.valor_numerico > 20 }}"
-				- name: Operação boolean
-					run: echo "${{ inputs.valor_boolean }}"
+jobs: 
+	teste:
+		permissions: write-all
+		runs-on: ubuntu-latest
+		steps:
+			- name: Operação com string
+				run: echo "${{ github.actor == inputs.valor_string}}"
+			- name: Operação com number
+				run: echo "${{ inputs.valor_numerico > 20 }}"
+			- name: Operação boolean
+				run: echo "${{ inputs.valor_boolean }}"
                               
