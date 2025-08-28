@@ -1,10 +1,24 @@
 name: Workflow Evento
 on:
-  pull_request:
-    branches: ["main"]
-jobs:
-  teste:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Action de teste
-        run: echo "${{ inputs.exemplo-input }}"
+  workflow_dispatch:
+	  inputs:
+		  valor_numerico:
+			  default: 20
+			valor_string:
+			  default: "Valor XPTO"
+		  valor_boolean:
+			  default: true
+	  
+		  
+	jobs: 
+		teste:
+			permissions: write-all
+			runs-on: ubuntu-latest
+			steps:
+				- name: Operação com string
+					run: echo "${{ github.actor == inputs.valor_string}}"
+				- name: Operação com number
+					run: echo "${{ inputs.valor_numerico > 20 }}"
+				- name: Operação boolean
+					run: echo "${{ inputs.valor_boolean }}"
+                              
