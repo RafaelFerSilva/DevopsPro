@@ -14,8 +14,8 @@ on:
 	  
 jobs: 
 	teste:
-		permissions: write-all
-		runs-on: ubuntu-latest
+    permissions: write-all
+    runs-on: ubuntu-latest
 		steps:
 			- name: Operação com string
 				run: echo "${{ github.actor == inputs.valor_string }}"
