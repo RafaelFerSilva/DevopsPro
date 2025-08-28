@@ -2,11 +2,14 @@ name: Workflow Evento
 on:
   workflow_dispatch:
     inputs:
-		  valor_numerico:
+      valor_numerico:
+        type: number
 			  default: 20
-			valor_string:
+      valor_string:
+        type: string
 			  default: "Valor XPTO"
-		  valor_boolean:
+      valor_boolean
+        type: boolean
 			  default: true
 	  
 jobs: 
@@ -15,7 +18,7 @@ jobs:
 		runs-on: ubuntu-latest
 		steps:
 			- name: Operação com string
-				run: echo "${{ github.actor == inputs.valor_string}}"
+				run: echo "${{ github.actor == inputs.valor_string }}"
 			- name: Operação com number
 				run: echo "${{ inputs.valor_numerico > 20 }}"
 			- name: Operação boolean
