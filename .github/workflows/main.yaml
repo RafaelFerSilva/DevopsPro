@@ -1,17 +1,25 @@
 name: Workflow Evento
 on:
-  pull_request:
-    branches: ["main"]
-jobs:
-  comment:
+  workflow_dispatch:
+    inputs:
+      valor_numerico:
+        type: number
+        default: 20
+      valor_string:
+        type: string
+        default: "Valor XPTO"
+      valor_boolean:
+        type: boolean
+        default: true
+	  
+jobs: 
+	teste:
+    permissions: write-all
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '👋 Thanks for reporting!'
-            })
+		steps:
+			- name: Operação com string
+				run: echo "${{ github.actor == inputs.valor_string }}"
+			- name: Operação com number
+				run: echo "${{ inputs.valor_numerico > 20 }}"
+			- name: Operação boolean
+				run: echo "${{ inputs.valor_boolean }}"
