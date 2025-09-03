@@ -13,13 +13,13 @@ on:
         default: true
 	  
 jobs: 
-	teste:
+  teste:
     permissions: write-all
     runs-on: ubuntu-latest
-		steps:
-			- name: Operação com string
-				run: echo "${{ github.actor == inputs.valor_string }}"
-			- name: Operação com number
-				run: echo "${{ inputs.valor_numerico > 20 }}"
-			- name: Operação boolean
-				run: echo "${{ inputs.valor_boolean }}"
+    steps:
+      - name: Operação com string
+        run: echo "${{ github.actor == inputs.valor_string }}"
+      - name: Operação com number
+        run: echo "${{ inputs.valor_numerico > 20 }}"
+      - name: Operação boolean
+        run: echo "${{ inputs.valor_boolean }}"
