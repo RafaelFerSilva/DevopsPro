@@ -1,26 +1,18 @@
-name: Workflow Evento
+name: CI/CD Fake
 on:
   workflow_dispatch:
-    inputs:
-      valor_numerico:
-        type: number
-        default: 20
-      valor_string:
-        type: string
-        default: "Valor XPTO"
-      valor_boolean:
-        type: boolean
-        default: true
-	  
-jobs: 
-	teste:
-    permissions: write-all
+jobs:
+  CI:
     runs-on: ubuntu-latest
-		steps:
-			- name: Operação com string
-				run: echo "${{ github.actor == inputs.valor_string }}"
-			- name: Operação com number
-				run: echo "${{ inputs.valor_numerico > 20 }}"
-			- name: Operação boolean
-				run: echo "${{ inputs.valor_boolean }}"
-                              
+    steps:
+      - name: Build de Image Docker
+        run: acho "Execução do comando de docker build"
+      - name: Execução de Testes de Software
+        run: acho "Aqui eu executo o teste de software"
+      - name: Publicando a Release
+        run: echo "Publicação da Release Final"
+  CD:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Deploy no ambiente
+         run: acho "Executando o deploy no ambiente de desenvolvimento"
