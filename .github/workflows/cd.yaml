@@ -2,7 +2,7 @@ name: Deploy Fake
 on:
   workflow_call:
     inputs:
-      environments:
+      environment:
         type: string
         default: "dev"
         required: true
