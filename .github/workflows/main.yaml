@@ -1,6 +1,16 @@
 name: CI/CD Fake
 on:
   workflow_dispatch:
+    inputs:
+      environment:
+        type: choise
+        default: "dev"
+        required: true
+        description: "environment to deploy"
+        options:
+          - uat
+          - rc
+          - production
 jobs:
   CI:
     runs-on: ubuntu-latest
@@ -15,4 +25,4 @@ jobs:
     needs: [CI]
     uses: RafaelFerSilva/DevopsPro/.github/workflows/cd.yaml@main
     with:
-      environment: production
+      environment: ${{ inputs.environment }}
