@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        type: choise
+        type: choice
         default: "dev"
         required: true
         description: "environment to deploy"
