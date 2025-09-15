@@ -14,3 +14,5 @@ jobs:
   CD:
     needs: [CI]
     uses: RafaelFerSilva/DevopsPro/.github/workflows/cd.yaml@main
+    with:
+      environment: production
