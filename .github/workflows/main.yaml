@@ -14,5 +14,5 @@ jobs:
   CD:
     needs: [CI]
     uses: RafaelFerSilva/devops_repos/.github/workflows/deploy.yml@main
-    secrets:
-      environment: ${{ secrets.ENVIROMENT_DELIVERY }}
+    with:
+      environment: production
