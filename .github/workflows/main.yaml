@@ -13,6 +13,6 @@ jobs:
         run: echo "Publicação da Release Final"
   CD:
     needs: [CI]
-    uses: RafaelFerSilva/DevopsPro/.github/workflows/cd.yaml@main
+    uses: RafaelFerSilva/devops_repos/.github/workflows/deploy.yml@main
     secrets:
       environment: ${{ secrets.ENVIROMENT_DELIVERY }}
