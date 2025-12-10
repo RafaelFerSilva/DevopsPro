@@ -17,7 +17,7 @@ jobs:
         environment:
             name: homologacao
             url: "http://homolocao.com.br"
-        needs: deploy-fake
+        needs: [deploy-fake]
         steps:
             - name: Fake de teste em ambiente
             - run: echo "Test no ambiente ${vars.AMBIENTE_DEPLOY }}"
@@ -27,7 +27,7 @@ jobs:
         environment:
             name: producao
             url: "http://producao.com.br"
-        needs: test-fake
+        needs: [test-fake]
         steps:
             - name: Fake de deploy em ambiente
             - run: echo "Deploy no ambiente ${vars.AMBIENTE_DEPLOY }}"
