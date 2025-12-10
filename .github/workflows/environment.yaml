@@ -2,7 +2,7 @@ name: CD Fake
 on: 
     workflow_dispatch: 
 jobs:
-    deploy-fake-homologacao:
+    deploy-fake-homolog:
         runs-on: ubuntu-latest
         environment:
             name: homologacao
