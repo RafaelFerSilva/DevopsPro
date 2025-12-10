@@ -2,12 +2,12 @@ name: CD Fake
 on: 
     workflow_dispatch: 
 jobs:
-    deploy-fake:
+    deploy-fake-homolog:
         runs-on: ubuntu-latest
         environment: homologacao
         steps:
             - name: Fake de deploy em ambiente
-              run: echo "Deploy no ambiente de ${{ vars.AMBIENTE_DEPLOY }}"
+              url: "http://homolocao.com.br"
     
     test-fake:
         runs-on: ubuntu-latest
@@ -15,7 +15,7 @@ jobs:
         needs: deploy-fake
         steps:
             - name: Fake de teste em ambiente
-              run: echo "Teste no ambiente de ${{ vars.AMBIENTE_DEPLOY }}"
+              url: "http://homolocao.com.br"
     
     deploy-fake-producao:
         runs-on: ubuntu-latest
@@ -23,4 +23,4 @@ jobs:
         needs: test-fake
         steps:
             - name: Fake de deploy em ambiente
-              run: echo "Deploy no ambiente de ${{ vars.AMBIENTE_DEPLOY }}"
+              url: "http://producao.com.br"
